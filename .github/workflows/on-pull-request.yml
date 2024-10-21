@@ -1,0 +1,14 @@
+name: Pull Request checks
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  small-test:
+    uses: ./.github/workflows/test-small.yml
+  medium-test:
+    needs:
+      - small-test
+    uses: ./.github/workflows/test-medium.yml

@@ -12,5 +12,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+          cache: 'maven'
       - name: Run tests
-        run: mvn test
+        run: mvn -B test

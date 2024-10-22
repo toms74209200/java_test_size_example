@@ -1,10 +1,10 @@
-name: Test of Medium size
+name: Build and install maven dependencies
 
 on:
   workflow_call:
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,5 +13,5 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
           cache: 'maven'
-      - name: Run tests
-        run: mvn -B test-compile failsafe:integration-test
+      - name: Build
+        run: mvn -B install -Dmaven.test.skip=true

@@ -6,7 +6,11 @@ on:
       - master
 
 jobs:
+  build:
+    uses: ./.github/workflows/build.yml
   small-test:
+    needs:
+      - build
     uses: ./.github/workflows/test-small.yml
   medium-test:
     needs:
